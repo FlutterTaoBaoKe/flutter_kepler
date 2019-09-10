@@ -1,4 +1,7 @@
 #import "FlutterKeplerPlugin.h"
+@interface FlutterKeplerPlugin()
+
+@end
 
 @implementation FlutterKeplerPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {

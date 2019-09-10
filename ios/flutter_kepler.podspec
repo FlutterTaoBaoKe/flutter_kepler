@@ -17,10 +17,11 @@ Pod::Spec.new do |s|
   s.dependency 'Flutter'
 
   s.vendored_frameworks ="JDKepler/*.framework"
+  #s.resource = "JDKepler/*.bundle"
 
   s.frameworks = "UIKit","Foundation","SystemConfiguration","JavaScriptCore"
 
-  s.libraries = "z","sqlite3.0"
+  s.libraries = "z","sqlite3.0","c++"
 
   s.ios.deployment_target = '8.0'
 end
