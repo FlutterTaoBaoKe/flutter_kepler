@@ -16,6 +16,12 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
 
+  s.vendored_frameworks ="JDKepler/*.framework"
+
+  s.frameworks = "UIKit","Foundation","SystemConfiguration","JavaScriptCore"
+
+  s.libraries = "z","sqlite3.0"
+
   s.ios.deployment_target = '8.0'
 end
 
