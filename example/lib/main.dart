@@ -48,7 +48,123 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(children: <Widget>[
+            FlatButton(
+              child: Text("初始化开普勒"),
+              onPressed: () async {
+                try {
+                  // var waite3s = await FlutterAlibc.openItemDetail(itemID: "12345");
+                  // 如果什么都不给
+                  var result = await FlutterKepler.initKepler(
+                    appKey: "0f777b0b8bc2db2c3105394cb3700111",
+                    appSecret: "eeac919be32c4cdbaaeca71bf8974112",
+                  );
+                  print(result);
+                } on Exception {}
+              },
+            ),
+            FlatButton(
+              child: Text("打开Url"),
+              onPressed: () {
+                FlutterKepler.keplerPageWithURL(
+                  url: "https://item.jd.com/10510526268.html",
+                );
+              },
+            ),
+            FlatButton(
+              child: Text("打开导航页"),
+              onPressed: () {
+                FlutterKepler.keplerNavigationPage();
+              },
+            ),
+            FlatButton(
+              child: Text("通过SKU打开Kepler单品页"),
+              onPressed: () {
+                FlutterKepler.keplerOpenItemDetailWithSKU(
+                  sku: "43684925672",
+                );
+              },
+            ),
+            FlatButton(
+              child: Text("打开订单列表"),
+              onPressed: () {
+                FlutterKepler.keplerOpenOrderList();
+              },
+            ),
+            FlatButton(
+              child: Text("根据搜索关键字打开搜索结果页"),
+              onPressed: () {
+                FlutterKepler.keplerOpenSearchResult(
+                  searchKey: "耐克",
+                );
+              },
+            ),
+            FlatButton(
+              child: Text("打开购物车界面"),
+              onPressed: () {
+                FlutterKepler.keplerOpenShoppingCart();
+              },
+            ),
+            FlatButton(
+              child: Text("添加到购物车（深圳的加车接口）"),
+              onPressed: () async {
+                var result = await FlutterKepler.keplerAddToCartWithSku(
+                  sku: "43684925672",
+                );
+                print(result.errorCode);
+              },
+            ),
+            FlatButton(
+              child: Text("联盟一键加购"),
+              onPressed: () async {
+                var result = await FlutterKepler.keplerFastPurchase(
+                  unionID: "",
+                  appID: "",
+                  skuID: "",
+                  refer: "",
+                );
+                print(result.errorCode);
+              },
+            ),
+            FlatButton(
+              child: Text("静态化检测更新"),
+              onPressed: () {
+                FlutterKepler.keplerCheckUpdate();
+              },
+            ),
+            FlatButton(
+              child: Text("登录授权"),
+              onPressed: () async {
+                var result = await FlutterKepler.keplerLogin();
+                print(result.errorCode);
+              },
+            ),
+            FlatButton(
+              child: Text("取消授权并且清除登录态"),
+              onPressed: () {
+                FlutterKepler.keplerCancelAuth();
+              },
+            ),
+            FlatButton(
+              child: Text("设置进度条颜色"),
+              onPressed: () {
+                FlutterKepler.setKeplerProgressBarColor(color: "##e23b41");
+              },
+            ),
+            FlatButton(
+              child: Text("判断是否登录"),
+              onPressed: () async {
+                var result = await FlutterKepler.keplerIsLogin();
+                print(result.errorCode);
+              },
+            ),
+            FlatButton(
+              child: Text("是否强制用h5打开"),
+              onPressed: () {
+                FlutterKepler.setKeplerOpenByH5(isOpenByH5: false);
+              },
+            ),
+          ]),
         ),
       ),
     );
