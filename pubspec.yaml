@@ -1,8 +1,8 @@
 name: flutter_kepler
 description: 京东开普勒插件
 version: 0.0.1
-author:
-homepage:
+author: wx<wuxinggggg@gmail.com>
+homepage: https://github.com/FlutterTaoBaoKe/flutter_kepler.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
