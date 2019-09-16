@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_kepler/flutter_kepler.dart';
 
@@ -56,8 +56,12 @@ class _MyAppState extends State<MyApp> {
                   // var waite3s = await FlutterAlibc.openItemDetail(itemID: "12345");
                   // 如果什么都不给
                   var result = await FlutterKepler.initKepler(
-                    appKey: "0f777b0b8bc2db2c3105394cb3700111",
-                    appSecret: "eeac919be32c4cdbaaeca71bf8974112",
+                    //appKey: "0f777b0b8bc2db2c3105394cb3700111", //这是iOS demo对应的appkey
+                    appKey:
+                        "b8dd51065cd0adf586358791da65d376", //这是Android demo对应的appkey
+                    //appSecret: "eeac919be32c4cdbaaeca71bf8974112",//这是iOS demo对应的appSecret
+                    appSecret:
+                        "5c1040675773463797d3c16d21d63e0f", //这是Android demo对应的appSecret
                   );
                   print(result);
                 } on Exception {}
@@ -66,9 +70,10 @@ class _MyAppState extends State<MyApp> {
             FlatButton(
               child: Text("打开Url"),
               onPressed: () {
-                FlutterKepler.keplerPageWithURL(
+                var result = FlutterKepler.keplerPageWithURL(
                   url: "https://item.jd.com/10510526268.html",
                 );
+                print(result);
               },
             ),
             FlatButton(

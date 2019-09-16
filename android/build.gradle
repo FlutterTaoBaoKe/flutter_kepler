@@ -31,4 +31,20 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['src/libs']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies{
+    implementation files('src/libs/jdmasdk.jar')
+    implementation files('src/libs/JDSDK_h.jar')
+    implementation files('src/libs/cps_1.0.0.jar')
 }

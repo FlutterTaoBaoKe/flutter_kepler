@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include layout="@layout/sdk_title_layout" />
+
+
+    <!--style="?android:attr/progressBarStyleHorizontal"-->
+    <ProgressBar
+        android:id="@+id/web_load_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/pressbar_color"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/sdk_title_id" />
+
+    <RelativeLayout
+        android:id="@+id/web_view_lin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/web_load_progressbar" />
+
+    <LinearLayout
+        android:id="@+id/sdk_more_select_lay_id"
+        android:layout_width="119dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/web_load_progressbar"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/select_bg"
+        android:orientation="horizontal"
+        android:visibility="gone" />
+
+    <include
+        android:layout_marginTop="40dp"
+        layout="@layout/neterror_layout" />
+
+</RelativeLayout>
