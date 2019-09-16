@@ -243,7 +243,7 @@ public class FlutterKeplerHandle {
         Map<String, Object> info = (Map)call.argument("userInfo");
         try {
             KeplerAttachParameter customerInfo = getAttachParameter(info);
-            mKelperTask= KeplerApiManager.getWebViewService().openNavigationPage(customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
+            mKelperTask= KeplerApiManager.getWebViewService().openOrderListPage(customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
             result.success(PluginResponse.failed(e).toMap());
         }
