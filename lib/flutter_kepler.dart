@@ -128,10 +128,10 @@ class FlutterKepler {
     );
   }
 
-  /// 静态化检测更新
-  static keplerCheckUpdate() {
-    _channel.invokeMethod("keplerCheckUpdate");
-  }
+  // /// 静态化检测更新，Android无此接口
+  // static keplerCheckUpdate() {
+  //   _channel.invokeMethod("keplerCheckUpdate");
+  // }
 
   /// 登录授权
   static Future<ResultModel> keplerLogin() async {
@@ -149,12 +149,12 @@ class FlutterKepler {
     );
   }
 
-// 设置进度条颜色,16进制
-  static setKeplerProgressBarColor({
-    @required String color,
-  }) {
-    _channel.invokeMethod("setKeplerProgressBarColor", {"color": color});
-  }
+// // 设置进度条颜色,16进制
+//   static setKeplerProgressBarColor({
+//     @required String color,
+//   }) {
+//     _channel.invokeMethod("setKeplerProgressBarColor", {"color": color});
+//   }
 
 // 判断当前是否已经登录授权
   static Future<ResultModel> keplerIsLogin() async {

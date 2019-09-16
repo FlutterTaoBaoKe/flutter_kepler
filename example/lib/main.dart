@@ -137,12 +137,12 @@ class _MyAppState extends State<MyApp> {
             print(result.errorCode);
           },
         ),
-        FlatButton(
-          child: Text("静态化检测更新"),
-          onPressed: () {
-            FlutterKepler.keplerCheckUpdate();
-          },
-        ),
+        // FlatButton(
+        //   child: Text("静态化检测更新"),
+        //   onPressed: () {
+        //     FlutterKepler.keplerCheckUpdate();
+        //   },
+        // ),
         FlatButton(
           child: Text("登录授权"),
           onPressed: () async {
@@ -156,12 +156,12 @@ class _MyAppState extends State<MyApp> {
             FlutterKepler.keplerCancelAuth();
           },
         ),
-        FlatButton(
-          child: Text("设置进度条颜色"),
-          onPressed: () {
-            FlutterKepler.setKeplerProgressBarColor(color: "##e23b41");
-          },
-        ),
+        // FlatButton(
+        //   child: Text("设置进度条颜色"),
+        //   onPressed: () {
+        //     FlutterKepler.setKeplerProgressBarColor(color: "##e23b41");
+        //   },
+        // ),
         FlatButton(
           child: Text("判断是否登录"),
           onPressed: () async {

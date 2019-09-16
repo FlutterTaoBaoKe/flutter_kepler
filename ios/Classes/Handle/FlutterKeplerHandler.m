@@ -39,8 +39,8 @@
     }failedCallback:^(NSError *error){
         //
         result(@{
-                 FlutterKeplerConstKey_ErrorCode:@"0",
-                 FlutterKeplerConstKey_ErrorMessage:@"success",
+                 FlutterKeplerConstKey_ErrorCode:[NSString stringWithFormat: @"%ld", error.code],
+                 FlutterKeplerConstKey_ErrorMessage:error.localizedDescription,
                  });
     }];
 }
