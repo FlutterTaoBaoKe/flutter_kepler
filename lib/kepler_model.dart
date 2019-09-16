@@ -13,4 +13,13 @@ class ResultModel {
   final String errorMessage;
 
   ResultModel(this.errorCode, this.errorMessage);
+
+  @override
+  String toString() {
+    return "{ \"errorCode\" : " +
+        errorCode +
+        " ; \" errorMessage \" : " +
+        errorMessage +
+        " }";
+  }
 }

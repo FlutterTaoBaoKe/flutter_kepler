@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- http://www.cnblogs.com/cyanfei/archive/2012/07/27/2612023.html -->
+    <!-- 背景  gradient是渐变,corners定义的是圆角 -->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="0dp" />
+
+            <solid android:color="#ffffff" />
+        </shape>
+    </item>
+    <!-- 第二条进度条颜色 -->
+    <!-- shape是用来定义形状的，gradient定义该形状里面为渐变色填充， -->
+    <!-- startColor起始颜色，endColor结束颜色，angle表示方向角度。 -->
+    <!-- 当angle=0时，渐变色是从左向右。 然后逆时针方向转，当angle=90时为从下往上。 -->
+    <!-- gradient  对应颜色渐变。 startcolor、endcolor就不多说了。 android:angle 是指从哪个角度开始变。 -->
+    <!-- solid      填充 -->
+    <!-- stroke   描边 -->
+    <!-- corners   圆角 -->
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <corners android:radius="0dip" />
+
+                <gradient
+                    android:angle="90.0"
+                    android:centerColor="#ac6079"
+                    android:centerY="0.45"
+                    android:endColor="#6c213a"
+                    android:startColor="#e71a5e" />
+            </shape>
+        </clip>
+    </item>
+    <!-- 进度条 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="0dip" />
+
+                <solid android:color="#FF8080" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
