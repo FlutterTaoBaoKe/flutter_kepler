@@ -38,8 +38,48 @@ dependencies:
 3.将Kepler.bundle拖入原生项目，如下图
 ![image](./images/ios.jpg)
 
-
 #### android需要的工程性配置
+
+在待引入工程的android目录下, AndroidManifest.xml文件内
+
+`例如 flutter_kepler\example\android\app\src\main\AndroidManifest.xml`
+
+添加以下配置
+
+```
+<manifast>
+	...
+	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission  android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    ...
+    <application ...>
+    ...
+    <activity android:name="com.kepler.jd.login.AuthSuccessActivity" 
+    android:exported="true" 
+    android:screenOrientation="portrait" > 
+</activity> 
+
+
+<activity
+        android:name="com.kepler.jd.sdk.KeplerMidActivity"
+    android:screenOrientation="portrait"          
+    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"       
+    android:windowSoftInputMode="adjustPan|stateHidden"></activity>
+
+<activity android:name="com.kepler.jd.sdk.WebViewActivity" 
+        android:screenOrientation="portrait" />
+    ...
+    </application>
+</manifast>
+```
+
+[参考链接](<http://kepler.jd.com/console/docCenterCatalog/docContent?channelId=45>)
+
+安全图片同样需要放在 待引入工程的android目录下 ,  /main/res/raw/safe.jpg
 
 
 ### 方法说明
