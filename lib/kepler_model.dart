@@ -23,3 +23,12 @@ class ResultModel {
         " }";
   }
 }
+
+class CartItem {
+  // skuID
+  final String skuID;
+  // SKU采购个数
+  final String count;
+  // 初始化
+  CartItem(this.skuID,this.count);
+}

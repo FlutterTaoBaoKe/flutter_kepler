@@ -1,4 +1,4 @@
-group 'com.wxwx.flutter_kepler'
+group 'com.example.flutter_kepler'
 version '1.0'
 
 buildscript {
@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.5.0'
     }
 }
 
@@ -22,29 +22,12 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 16
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         disable 'InvalidPackage'
     }
-
-    sourceSets{
-        main{
-            jniLibs.srcDirs = ['src/libs']
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-}
-
-dependencies{
-    implementation files('src/libs/jdmasdk.jar')
-    implementation files('src/libs/JDSDK_h.jar')
-    implementation files('src/libs/cps_1.0.0.jar')
 }

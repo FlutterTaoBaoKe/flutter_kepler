@@ -113,15 +113,60 @@ class FlutterKepler {
   ///AppID 查看位置：我的推广-推广管理-APP管理
   ///skuID 商品SKU,
   ///refer refer (原生页面传域名+文章编号)
+  ///subUnionId 子联盟ID，可用于区分媒体自身的用户ID
   ///
   static Future<ResultModel> keplerFastPurchase({
     @required String unionID,
     @required String appID,
     @required String skuID,
     @required String refer,
+    @required String subUnionId,
   }) async {
-    Map result = await _channel.invokeMethod("keplerFastPurchase",
-        {"unionID": unionID, "appID": appID, "skuID": skuID, "refer": refer});
+    Map result = await _channel.invokeMethod("keplerFastPurchase", {
+      "unionID": unionID,
+      "appID": appID,
+      "skuID": skuID,
+      "refer": refer,
+      "subUnionId": subUnionId,
+    });
+    return ResultModel(
+      result[KeplerConstKey.errorCode],
+      result[KeplerConstKey.errorMessage],
+    );
+  }
+
+  ///
+  ///购物车一键加购
+  ///unionID 联盟ID
+  ///AppID 查看位置：我的推广-推广管理-APP管理
+  ///skus 商品SKU的数组[{skuID:"132",count:"123"}],
+  ///refer refer (原生页面传域名+文章编号)
+  ///subUnionId 子联盟ID，可用于区分媒体自身的用户ID
+  ///
+  static Future<ResultModel> keplerFastPurchaseSkus({
+    @required String unionID,
+    @required String appID,
+    @required List<CartItem> skus,
+    @required String refer,
+    @required String subUnionId,
+  }) async {
+    String skuIDs = "";
+    String counts = "";
+    skus.forEach((element) {
+      skuIDs = skuIDs + "," + element.skuID;
+      counts = counts + "," + element.count;
+    });
+    skuIDs = skuIDs.substring(1);
+    counts = counts.substring(1);
+
+    Map result = await _channel.invokeMethod("keplerFastPurchaseSkus", {
+      "unionID": unionID,
+      "appID": appID,
+      "skuIDs": skuIDs,
+      "skuCounts": counts,
+      "refer": refer,
+      "subUnionId": subUnionId,
+    });
     return ResultModel(
       result[KeplerConstKey.errorCode],
       result[KeplerConstKey.errorMessage],

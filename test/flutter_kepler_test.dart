@@ -5,6 +5,8 @@ import 'package:flutter_kepler/flutter_kepler.dart';
 void main() {
   const MethodChannel channel = MethodChannel('flutter_kepler');
 
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
       return '42';

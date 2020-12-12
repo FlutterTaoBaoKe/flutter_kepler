@@ -18,31 +18,10 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>sdkback0f777b0b8bc2db2c3105394cb3700111</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>weixin</string>
-		<string>openapp.jdmobile</string>
-		<string>jdlogin</string>
-	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>请允许APP访问您的相机</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>请允许APP使用你的相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

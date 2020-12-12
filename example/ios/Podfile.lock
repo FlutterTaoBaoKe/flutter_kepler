@@ -4,19 +4,19 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `Flutter`)
   - flutter_kepler (from `.symlinks/plugins/flutter_kepler/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: Flutter
   flutter_kepler:
     :path: ".symlinks/plugins/flutter_kepler/ios"
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_kepler: 871457e3a934d3f99f3ae6c63fb3de88e8b55829
+  flutter_kepler: d331bc186687ac80b887b2f2f09107c4245b329d
 
-PODFILE CHECKSUM: 7fb83752f59ead6285236625b82473f90b1cb932
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1

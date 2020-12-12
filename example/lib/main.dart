@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_kepler/flutter_kepler.dart';
+import 'package:flutter_kepler/kepler_model.dart';
 
 void main() => runApp(MyApp());
 
@@ -133,6 +134,24 @@ class _MyAppState extends State<MyApp> {
               appID: "",
               skuID: "",
               refer: "",
+              subUnionId: "",
+            );
+            print(result.errorCode);
+          },
+        ),
+        FlatButton(
+          child: Text("购物车批量加购"),
+          onPressed: () async {
+            List<CartItem> skus = [
+              CartItem('43684925672','1'),
+              CartItem('43684925673','3'),
+            ];
+            var result = await FlutterKepler.keplerFastPurchaseSkus(
+              unionID: "",
+              appID: "",
+              refer: "",
+              skus: skus,
+              subUnionId: "",
             );
             print(result.errorCode);
           },

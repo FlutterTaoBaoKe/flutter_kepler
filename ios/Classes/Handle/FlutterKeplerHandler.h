@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)keplerAddToCartWithSku:(FlutterMethodCall *)call result:(FlutterResult)result;
 // 联盟一键加购
 - (void)keplerFastPurchase:(FlutterMethodCall *)call result:(FlutterResult)result;
+// 购物车一键加购
+- (void)keplerFastPurchaseSkus:(FlutterMethodCall *)call result:(FlutterResult)result;
 //静态化检测更新
 - (void)keplerCheckUpdate:(FlutterMethodCall *)call result:(FlutterResult)result;
 //登录授权

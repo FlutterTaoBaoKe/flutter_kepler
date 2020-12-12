@@ -4,7 +4,7 @@
 //  提供Kepler服务
 //  Created by JD.K on 16/6/20.
 //  Copyright © 2016年 JD.K. All rights reserved.
-//  version 2.2.4
+//  version 3.2.0
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -15,6 +15,8 @@ typedef void (^initSuccessCallback)();
 typedef void (^initFailedCallback)(NSError *error);
 /** JD内部App登录流程 */
 typedef void (^initJDInnerLogin)(UIViewController *currentViewController);
+
+typedef void (^clearCookiesCallBack)(BOOL isSuccess);
 
 typedef NS_ENUM(NSInteger, JDInnerLogin) {
     JDInnerLoginFailure = 0, //获取code失败
@@ -125,14 +127,27 @@ typedef void (^keplerCompletionHandler)(BOOL result,id _Nullable responseObject,
 - (void)openNavigationPage:(UIViewController *)sourceController jumpType:(NSInteger)jumpType customParams:(NSString *)customParams API_DEPRECATED_WITH_REPLACEMENT("openNavigationPage:sourceController:jumpType:userInfo:", ios(7.0,11.0));
 
 - (void)openNavigationPage:(UIViewController *)sourceController jumpType:(NSInteger)jumpType userInfo:(NSDictionary *)userInfo;
+
 /**
  *  通过SKU打开Kepler单品页
  *
  *  @param sku              商品SKU
  */
-- (void)openItemDetailWithSKU:(NSString *)sku sourceController:(UIViewController *)sourceController jumpType:(NSInteger)jumpType customParams:(NSString *)customParams API_DEPRECATED_WITH_REPLACEMENT("openItemDetailWithSKU:sourceController:jumpType:userInfo:", ios(7.0,11.0));
+- (void)openItemDetailWithSKU:(NSString *)sku
+             sourceController:(UIViewController *)sourceController
+                     jumpType:(NSInteger)jumpType
+                 customParams:(NSString *)customParams API_DEPRECATED_WITH_REPLACEMENT("openItemDetailWithSKU:sourceController:jumpType:userInfo:", ios(7.0,11.0));
+// 京东商详接口
+- (void)openItemDetailWithSKU:(NSString *)sku
+             sourceController:(UIViewController *)sourceController
+                     jumpType:(NSInteger)jumpType
+                     userInfo:(NSDictionary *)userInfo;
 
-- (void)openItemDetailWithSKU:(NSString *)sku sourceController:(UIViewController *)sourceController jumpType:(NSInteger)jumpType userInfo:(NSDictionary *)userInfo;
+// 京喜商详接口
+- (void)openJXItemDetailWithSKU:(NSString *)sku
+               sourceController:(UIViewController *)sourceController
+                       jumpType:(NSInteger)jumpType
+                       userInfo:(NSDictionary *)userInfo;
 
 /**
  *  打开订单列表
@@ -204,6 +219,7 @@ typedef void (^keplerCompletionHandler)(BOOL result,id _Nullable responseObject,
  @param appID AppID 查看位置：我的推广-推广管理-APP管理
  @param skuID 商品SKU
  @param refer refer (原生页面传域名+文章编号)
+ @param subUnionId 子联盟ID，可用于区分媒体自身的用户ID
  @param viewController 当前的视图控制器
  @param completionHandler 返回
  */
@@ -211,9 +227,30 @@ typedef void (^keplerCompletionHandler)(BOOL result,id _Nullable responseObject,
                          appID:(NSString *)appID
                          skuID:(NSString *)skuID
                          refer:(NSString *)refer
+                    subUnionId:(NSString *)subUnionId
                     controller:(UIViewController *)viewController
                     completion:(keplerCompletionHandler)completionHandler;
 
+/**
+ 批量一键加购
+
+ @param unionID
+ @param appID AppID 查看位置：我的推广-推广管理-APP管理
+ @param skuIDs 商品SKU    以逗号隔开
+ @param skuCounts 商品SKU 对应的数量   以逗号隔开
+ @param refer refer (原生页面传域名+文章编号)
+ @param subUnionId 子联盟ID，可用于区分媒体自身的用户ID
+ @param viewController 当前的视图控制器
+ @param completionHandler 返回
+ */
+- (void)keplerFastPurchaseWith:(NSString *)unionID
+                         appID:(NSString *)appID
+                        skuIDs:(NSString *)skuIDs
+                     skuCounts:(NSString *)skuCounts
+                         refer:(NSString *)refer
+                    subUnionId:(NSString *)subUnionId
+                    controller:(UIViewController *)viewController
+                    completion:(keplerCompletionHandler)completionHandler;
 
 /*****************************   End   *******************************************/
 
@@ -249,6 +286,8 @@ typedef void (^keplerCompletionHandler)(BOOL result,id _Nullable responseObject,
  *  取消授权
  */
 - (void)cancelAuth;
+
+- (void)cancelAuthWithBlock:(clearCookiesCallBack)completedBlock;
 
 /**
  *  设置加载进度条颜色
