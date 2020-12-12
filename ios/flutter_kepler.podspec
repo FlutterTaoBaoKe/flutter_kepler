@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, '8.0'
   s.frameworks = "UIKit","Foundation","SystemConfiguration","JavaScriptCore"
   s.libraries = "z","sqlite3.0","c++"
+  s.static_framework = true
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
