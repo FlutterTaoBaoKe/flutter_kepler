@@ -13,6 +13,7 @@
             binaryMessenger:[registrar messenger]];
   FlutterKeplerPlugin* instance = [[FlutterKeplerPlugin alloc] initWithRegistrar:registrar];
   [registrar addMethodCallDelegate:instance channel:channel];
+  [registrar addApplicationDelegate:instance];
 }
 - (instancetype)initWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
     self = [super init];
