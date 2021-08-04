@@ -1,6 +1,0 @@
-framework module JDKeplerSDK {
-  umbrella header "JDKeplerSDK.h"
-
-  export *
-  module * { export * }
-}

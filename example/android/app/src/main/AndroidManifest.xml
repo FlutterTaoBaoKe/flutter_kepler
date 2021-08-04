@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_kepler_example">
+    package="com.wxwx.flutter_kepler_example">
    <application
         android:label="flutter_kepler_example"
         android:icon="@mipmap/ic_launcher">
